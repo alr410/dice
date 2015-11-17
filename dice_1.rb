@@ -26,15 +26,22 @@ while (num == 0 || num == nil)
 end
 
 # Покажем игроку прoизвольное количество кубиков от 1 до 6 "num" раз,
-# если число >= 1 и <= 6
+# если число >= 1 и <= 6, также подсчитаем сумму выбрашенных кубиков
+sum = 0
+num_cube = 0
+
 if num <= 6 && num >= 1
-num.times do
-  show_rolling_die
-  puts "#{rand(7)}"
-end
+  num.times do
+    show_rolling_die
+    num_cube = rand(7)
+    sum += num_cube
+    puts "#{num_cube}"
+  end
 else
   abort "Число должно быть от 1 до 6!!!"
 end
+
+puts "Ваша сумма выбрашенных кубиков = #{sum}"
 
 
 
