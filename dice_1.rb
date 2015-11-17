@@ -13,9 +13,13 @@ if (Gem.win_platform?)
   end
 end
 
-# Спросим у игрока сколько раз кинуть кубик
+# Подключим метод show_rolling_die
+require_relative "show_rolling_die.rb"
+current_path = File.dirname(__FILE__)
 
+# Спросим у игрока сколько раз кинуть кубик
 num = 0
+
 while (num == 0 || num == nil)
   puts "Сколько раз кинуть кубик от 1 до 6?"
   num = STDIN.gets.chomp.to_i
@@ -25,7 +29,8 @@ end
 # если число >= 1 и <= 6
 if num <= 6 && num >= 1
 num.times do
-  puts (rand(6) + 1).to_s
+  show_rolling_die
+  puts "#{rand(7)}"
 end
 else
   abort "Число должно быть от 1 до 6!!!"
