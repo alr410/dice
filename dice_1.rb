@@ -1,3 +1,9 @@
+#Пусть кубик «вращается» во время броска: сделайте так,
+# чтобы перед тем, как вывести произвольное число от 1 до 6,
+# программа бы быстро отображала несколько сменяющих друг друга
+# произвольных чисел — «граней кубика».
+
+
 if (Gem.win_platform?)
   Encoding.default_external = Encoding.find(Encoding.locale_charmap)
   Encoding.default_internal = __ENCODING__
@@ -8,6 +14,24 @@ if (Gem.win_platform?)
 end
 
 # Спросим у игрока сколько раз кинуть кубик
-puts "Сколько раз кинуть кубик от 1 до 6?"
-num = STDIN.gets.chomp.to_i
+
+num = 0
+while (num == 0 || num == nil)
+  puts "Сколько раз кинуть кубик от 1 до 6?"
+  num = STDIN.gets.chomp.to_i
+end
+
+# Покажем игроку прoизвольное количество кубиков от 1 до 6 "num" раз,
+# если число >= 1 и <= 6
+if num <= 6 && num >= 1
+num.times do
+  puts (rand(6) + 1).to_s
+end
+else
+  abort "Число должно быть от 1 до 6!!!"
+end
+
+
+
+
 

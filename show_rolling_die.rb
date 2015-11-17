@@ -5,7 +5,7 @@
 def show_rolling_die(num = 100)
   num.times do
     print "#{rand(6) + 1}" + "\r"
-    sleep(0.1)
+    sleep(0.05)
   end
 end
 
